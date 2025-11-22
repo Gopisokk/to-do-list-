@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-purple: #bc13fe;
+  --bg-dark: #050505;
+  --bg-panel: #0a0a0a;
+  --text-main: #e0e0e0;
+  --grid-color: rgba(0, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center center;
+}
+
+/* Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-pink);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cyber-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cyber-card {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan), inset 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  position: relative;
+  clip-path: polygon(0 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%);
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--neon-cyan);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.cyber-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--neon-purple);
+  color: var(--neon-cyan);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+  border-bottom-color: var(--neon-pink);
+  box-shadow: 0 4px 4px -4px var(--neon-pink);
+}
+
+.cyber-btn {
+  background: transparent;
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  padding: 10px 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-btn:hover {
+  background: var(--neon-pink);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.cyber-btn-secondary {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.cyber-btn-secondary:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.glitch-text {
+  position: relative;
+  color: var(--neon-cyan);
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px var(--neon-pink);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--neon-purple);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  border-left-color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+  border-left-color: #555;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 255, 255, 0.1);
+  border-left-color: var(--neon-cyan);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility / Layout Classes */
+.app-container {
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.font-mono {
+  font-family: monospace;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.border-b {
+  border-bottom: 1px solid var(--grid-color);
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Colors */
+.text-pink-500 {
+  color: var(--neon-pink);
+}
+
+.text-cyan-400 {
+  color: var(--neon-cyan);
+}
+
+.text-cyan-600 {
+  color: #0891b2;
+}
+
+.text-yellow-400 {
+  color: #facc15;
+}
+
+.text-green-400 {
+  color: #4ade80;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-white {
+  color: white;
+}
+
+.bg-pink-500 {
+  background-color: var(--neon-pink);
+}
+
+.hover-rotate-180:hover {
+  transform: rotate(180deg);
+}
+
+.transition-transform {
+  transition: transform 0.3s;
+}
+
+.transition-all {
+  transition: all 0.3s;
+}
+
+.shadow-pink {
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.delete-btn {
+  color: #ef4444;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #f87171;
+  text-shadow: 0 0 10px #ef4444;
+}
