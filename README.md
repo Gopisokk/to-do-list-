@@ -1,4 +1,4 @@
-# Cyberpunk Todo App
+# Todo App
 
 A futuristic To-Do list application built with React (Frontend) and Rust (Backend).
 
@@ -38,8 +38,5 @@ A futuristic To-Do list application built with React (Frontend) and Rust (Backen
    The app will be available at `http://localhost:5173`.
 
 ## Features
-
-- **Cyberpunk UI**: Neon colors, glassmorphism, glitch effects.
-- **Dynamic List**: Add, toggle, and delete tasks.
 - **Rust Backend**: High-performance API using Actix-web.
 - **React Frontend**: Fast and responsive UI using Vite.
